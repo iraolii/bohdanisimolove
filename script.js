@@ -6,7 +6,7 @@ const mobileImages = document.querySelectorAll('.mobile-image');
 function changeFrame(event) {
     const currentImage = event.target;
 
-    // Зупиняємо анімацію попереднього зображення
+    // Видаляємо клас 'active' з поточного зображення
     currentImage.classList.remove('active');
 
     // Знаходимо наступне зображення
@@ -23,4 +23,4 @@ function changeFrame(event) {
 
 // Додаємо події кліку для кожного зображення
 desktopImages.forEach(image => image.addEventListener('click', changeFrame));
-mobileImages.forEach(image => image.addEventListener('click', changeFrame));
+mobileImages.forEach(image => image.addEventListener('click', changeFrame)); }
