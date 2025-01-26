@@ -1,17 +1,80 @@
-// Отримуємо всі фрейми
-const frames = document.querySelectorAll('.frame');
+/* Загальні стилі */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    font-family: Arial, sans-serif;
+}
 
-// Встановлюємо початковий індекс активного фрейму
-let currentFrameIndex = 0;
+/* Контейнер для зображень */
+.container {
+    position: relative;
+    width: 100vw; /* Ширина на весь екран */
+    height: 100vh; /* Висота на весь екран */
+    overflow: hidden; /* Приховує все, що виходить за межі */
+}
 
-// Додаємо подію кліку на контейнер
-document.querySelector('.container').addEventListener('click', () => {
-    // Приховуємо поточний фрейм
-    frames[currentFrameIndex].classList.remove('active');
+/* Кожен фрейм */
+.frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Робимо зображення адаптивним */
+    height: 100%; /* Заповнюємо весь контейнер */
+    object-fit: cover; /* Масштабуємо зображення без спотворення */
+    opacity: 0; /* Приховано за замовчуванням */
+    transition: opacity 0.5s ease; /* Плавний перехід */
+}
 
-    // Переходимо до наступного фрейму
-    currentFrameIndex = (currentFrameIndex + 1) % frames.length;
+/* Активний фрейм */
+.frame.active {
+    opacity: 1; /* Робимо активний фрейм видимим */
 
-    // Робимо новий фрейм активним
-    frames[currentFrameIndex].classList.add('active');
-});
+    .container {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        cursor: pointer; /* Зміна курсора для вказівки на клікабельність */
+    }
+    
+    .frame {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        pointer-events: none; /* Вимикаємо події для невидимих фреймів */
+        transition: opacity 0.5s ease;
+    }
+    
+    .frame.active {
+        opacity: 1;
+        pointer-events: auto; /* Вмикаємо події для активного фрейму */
+    }
+}
+/* Стилі для мобільних пристроїв */
+@media (max-width: 768px) {
+    #frame1 {
+        content: url('images-mobile/closed-front-mobile.png');
+    }
+
+    #frame2 {
+        content: url('images-mobile/closed-back-mobile.png');
+    }
+
+    #frame3 {
+        content: url('images-mobile/open-envelope-mobile.png');
+    }
+
+    #frame4 {
+        content: url('images-mobile/letter-mobile.png');
+    }
+}
