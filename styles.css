@@ -1,30 +1,31 @@
 /* Загальні стилі для зображень */
 .frame {
     display: none;
-    width: 100%; /* робимо зображення адаптивними */
+    width: 100%;
     height: auto;
 }
 
 /* За замовчуванням показуємо зображення для великих екранів */
-.mobile-image {
-    display: none;
+.mobile-images {
+    display: none; /* Приховуємо зображення для мобільних за замовчуванням */
 }
 
-.desktop-image {
-    display: block;
+.desktop-images {
+    display: block; /* Показуємо зображення для десктопів */
 }
 
 /* Для мобільних пристроїв (ширина екрана <= 768px) показуємо зображення для мобільних */
 @media only screen and (max-width: 768px) {
-    .mobile-image {
+    .mobile-images {
         display: block; /* Показуємо зображення для мобільних */
     }
 
-    .desktop-image {
-        display: none; /* Приховуємо зображення для великих екранів */
+    .desktop-images {
+        display: none; /* Приховуємо зображення для десктопів */
     }
 }
 
 /* Стиль для активного зображення */
 .active {
     display: block;
+}
