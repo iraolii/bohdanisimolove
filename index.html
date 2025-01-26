@@ -8,15 +8,22 @@
 </head>
 <body>
     <div class="container">
-        <img src="images/closed-front.png" alt="Закритий конверт лицьова сторона" id="frame1" class="frame active">
-        <img src="images/closed-back.png" alt="Закритий конверт задня сторона" id="frame2" class="frame">
-        <img src="images/open-envelope.png" alt="Відкритий конверт" id="frame3" class="frame">
-        <img src="images/letter.png" alt="Листівка" id="frame4" class="frame">
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+        <!-- Зображення для десктопу -->
+        <div class="desktop-images">
+            <img src="images/closed-front.png" alt="Закритий конверт лицьова сторона" id="frame1" class="frame desktop-image active">
+            <img src="images/closed-back.png" alt="Закритий конверт задня сторона" id="frame2" class="frame desktop-image">
+            <img src="images/open-envelope.png" alt="Відкритий конверт" id="frame3" class="frame desktop-image">
+            <img src="images/letter.png" alt="Листівка" id="frame4" class="frame desktop-image">
+        </div>
 
+        <!-- Зображення для мобільних пристроїв -->
+        <div class="mobile-images">
+            <img src="images-mobile/closed-front-mobile.png" alt="Закритий конверт лицьова сторона" id="frame1-mobile" class="frame mobile-image active">
+            <img src="images-mobile/closed-back-mobile.png" alt="Закритий конверт задня сторона" id="frame2-mobile" class="frame mobile-image">
+            <img src="images-mobile/open-envelope-mobile.png" alt="Відкритий конверт" id="frame3-mobile" class="frame mobile-image">
+            <img src="images-mobile/letter-mobile.png" alt="Листівка" id="frame4-mobile" class="frame mobile-image">
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
