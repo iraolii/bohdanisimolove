@@ -1,17 +1,26 @@
-// Отримуємо всі фрейми
-const frames = document.querySelectorAll('.frame');
+// Отримуємо всі зображення для десктопу та мобільних пристроїв
+const desktopImages = document.querySelectorAll('.desktop-image');
+const mobileImages = document.querySelectorAll('.mobile-image');
 
-// Встановлюємо початковий індекс активного фрейму
-let currentFrameIndex = 0;
+// Функція для зміни активного зображення
+function changeFrame(event) {
+    const currentImage = event.target;
 
-// Додаємо подію кліку на контейнер
-document.querySelector('.container').addEventListener('click', () => {
-    // Приховуємо поточний фрейм
-    frames[currentFrameIndex].classList.remove('active');
+    // Зупиняємо анімацію попереднього зображення
+    currentImage.classList.remove('active');
 
-    // Переходимо до наступного фрейму
-    currentFrameIndex = (currentFrameIndex + 1) % frames.length;
+    // Знаходимо наступне зображення
+    let nextImage = currentImage.nextElementSibling;
+    
+    // Якщо наступного зображення немає, повертаємось до першого
+    if (!nextImage) {
+        nextImage = desktopImages[0] || mobileImages[0];
+    }
 
-    // Робимо новий фрейм активним
-    frames[currentFrameIndex].classList.add('active');
-});
+    // Активуємо наступне зображення
+    nextImage.classList.add('active');
+}
+
+// Додаємо події кліку для кожного зображення
+desktopImages.forEach(image => image.addEventListener('click', changeFrame));
+mobileImages.forEach(image => image.addEventListener('click', changeFrame));
